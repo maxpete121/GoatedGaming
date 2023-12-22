@@ -7,6 +7,7 @@ export class PostsController extends BaseController {
         super('api/posts')
         this.router
         .get('', this.getPost)
+        .get('/find/:postId')
         .post('', this.createPost)
         .put('/:postId', this.updatePost)
         .delete('/:postId', this.deletePost)
@@ -47,6 +48,17 @@ export class PostsController extends BaseController {
             const updatePost = request.body
             const updated = await postsService.updatePost(postId, updatePost)
             response.send(updated)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+
+    async getPostId(request, response, next){
+        try {
+            const postId = request.params.postId
+            const post = await postsService.getPostId(postId)
+            response.send(post)
         } catch (error) {
             next(error)
         }
