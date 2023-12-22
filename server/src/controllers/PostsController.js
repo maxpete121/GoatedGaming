@@ -7,7 +7,7 @@ export class PostsController extends BaseController {
         super('api/posts')
         this.router
         .get('', this.getPost)
-        .get('/find/:postId')
+        .get('/:postId', this.getPostId)
         .post('', this.createPost)
         .put('/:postId', this.updatePost)
         .delete('/:postId', this.deletePost)
@@ -24,12 +24,12 @@ export class PostsController extends BaseController {
     }
 
     async getPost(request, response, next){
-     try {
+    try {
         const posts = await postsService.getPost()
         response.send(posts)
-     } catch (error) {
+    } catch (error) {
         next(error)
-     }   
+    }   
     }
 
     async deletePost(request, response, next){

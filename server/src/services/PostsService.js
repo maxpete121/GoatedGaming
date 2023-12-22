@@ -22,7 +22,8 @@ class PostsService {
         const foundPost = await dbContext.Posts.findById(postId)
         foundPost.postedBy = updatePost.postedBy ? updatePost.postedBy : foundPost.postedBy
         foundPost.title = updatePost.title ? updatePost.title : foundPost.title
-        foundPost.bodyUrl = updatePost.bodyUrl ? updatePost.bodyUrl : foundPost.bodyUrl
+        foundPost.imgUrl = updatePost.imgUrl ? updatePost.imgUrl : foundPost.imgUrl
+        foundPost.body = updatePost.body ? updatePost.body : foundPost.body
         foundPost.description = updatePost.description ? updatePost.description : foundPost.description
         foundPost.like = updatePost.like ? updatePost.like : foundPost.like
         await foundPost.save()
