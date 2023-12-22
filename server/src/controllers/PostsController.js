@@ -8,6 +8,7 @@ export class PostsController extends BaseController {
         this.router
         .get('', this.getPost)
         .post('', this.createPost)
+        .put('/:postId', this.updatePost)
         .delete('/:postId', this.deletePost)
     }
     async createPost(request, response, next) {
@@ -23,7 +24,8 @@ export class PostsController extends BaseController {
 
     async getPost(request, response, next){
      try {
-        await postsService.createPost()
+        const posts = await postsService.getPost()
+        response.send(posts)
      } catch (error) {
         next(error)
      }   
@@ -33,7 +35,18 @@ export class PostsController extends BaseController {
         try {
             const postId = request.params.postId
             const deletedPost = await postsService.deletePost(postId)
-            return deletedPost
+            response.send(deletedPost)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async updatePost(request, response, next){
+        try {
+            const postId = request.params.postId
+            const updatePost = request.body
+            const updated = await postsService.updatePost(postId, updatePost)
+            response.send(updated)
         } catch (error) {
             next(error)
         }
