@@ -1,9 +1,20 @@
+import { AppState } from "../AppState.js"
 import { postService } from "../services/PostService.js"
 import { getFormData } from "../utils/FormHandler.js"
+import { setHTML } from "../utils/Writer.js";
+
+function _drawPost(){
+    const posts = AppState.posts
+    let content = ''
+    posts.forEach(post => content += post.PostTemplate)
+    setHTML('posts', content)
+}
 
 export class PostController{
     constructor(){
         console.log('Scrum Daddy')
+        AppState.on('posts', _drawPost)
+        this.getPosts()
     }
 
     async createPost(){
@@ -17,7 +28,7 @@ export class PostController{
             console.error(error)
         }
     }
-    async getPost() {
+    async getPosts() {
         try {
             await postService.getPosts()
         } catch (error) {
