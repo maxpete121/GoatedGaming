@@ -1,3 +1,6 @@
+import { AppState } from "../AppState.js"
+import { Post } from "../models/Post.js"
+import { api } from "./AxiosService.js"
 
 class PostService {
   // async getPost() {
@@ -9,6 +12,10 @@ class PostService {
   //   }
   // }
 
-}
+  async createPost(data){
+  const res = await api.post('api/post', data)
+  AppState.posts.push(new Post(res.body))
+  }
 
+}
 export const postService = new PostService()
