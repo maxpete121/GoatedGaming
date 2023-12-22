@@ -2,7 +2,8 @@ export class Post {
   constructor(data) {
     this.postedBy = data.postedBy || 'Scrum Daddy Bless Me'
     this.title = data.title || 'Scrum Daddy Bless Me'
-    this.bodyUrl = data.bodyUrl || 'Scrum Daddy Bless Me'
+    this.imgUrl = data.imgUrl || 'https://i.redd.it/k3rjuky1xsy21.jpg'
+    this.body = data.body || 'Scrum Daddy Bless Me'
     this.description = data.description || 'Scrum Daddy Bless Me'
     this.like = data.like || 'Scrum Daddy Bless Me'
 
@@ -17,11 +18,11 @@ export class Post {
     return `
     <section class="d-flex justify-content-center">
       <div class="card border-light bg-transparent text-center m-2" style="width: 30rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="${this.imgUrl}" class="card-img-top" alt="its a picture!">
         <div class="card-body bg-">
           <h5 class="card-title">${this.title}</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary">${this.description}</h6>
-          <p class="card-text">${this.bodyUrl}</p>
+          <p class="card-text">${this.body}</p>
         </div>
       </div>
     </section>
