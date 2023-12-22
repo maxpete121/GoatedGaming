@@ -7,10 +7,12 @@ export const PostSchema = new Schema({
     bodyUrl: {type: String, maxLength: 300, required: true},
     description: {type: String, maxLength: 100},
     like: {type: Number},
-},{toJSON: {virtuals: true}})
+    comment: {type: Schema.Types.ObjectId}
+},{toJSON: {virtuals: true}, timestamps: true})
 
 PostSchema.virtual('account', {
     localField: 'postedBy',
     foreignField: '_id',
-    ref: 'Account'
+    ref: 'Account',
+    justOne: true
 })

@@ -1,8 +1,5 @@
 import { postService } from "../services/PostService.js"
 import { getFormData } from "../utils/FormHandler.js"
-import { Pop } from "../utils/Pop.js"
-
-
 
 export class PostController{
     constructor(){
@@ -10,18 +7,21 @@ export class PostController{
     }
 
     async createPost(){
-        //@ts-ignore */
-        event.preventDefault()
-        console.log('a')
-        //@ts-ignore */
-        const formData = getFormData(event.target)
-        console.log(formData)
         try{
-            await postService.createPost(formData)
+            //@ts-ignore */
+            event.preventDefault()
+            //@ts-ignore */
+            await postService.createPost(getFormData(event.target))
         }
         catch(error){
             console.error(error)
-            Pop.error(error)
+        }
+    }
+    async getPost() {
+        try {
+            await postService.getPosts()
+        } catch (error) {
+            console.error(error);   
         }
     }
 }

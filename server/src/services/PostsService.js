@@ -29,6 +29,10 @@ class PostsService {
         return foundPost
     }
 
+    async getPostId(postId){
+        const foundPost = await dbContext.Posts.findById(postId)
+        return foundPost
+    }
 }
 
 export const postsService = new PostsService()

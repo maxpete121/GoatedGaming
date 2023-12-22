@@ -11,5 +11,13 @@ export const CommentSchema = new Schema({
 CommentSchema.virtual('profile', {
     localField: 'profileName',
     foreignField: '_id',
-    ref: 'Profile'
+    ref: 'Profile',
+    justOne: true
 })
+
+CommentSchema.virtual('post',{
+    localField: 'profileName',
+    foreignField: '_id',
+    justOne: true
+}
+)
