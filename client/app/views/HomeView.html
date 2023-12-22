@@ -7,22 +7,29 @@
     </div>
 
     <div class="col-3">
-        <form action="app.PostController.createPost()">
+        <form onsubmit="app.PostController.createPost()">
 
             <div>
-                <label for="postTitle"></label>
+                <label for="postTitle">Title</label>
                 <input id="postTitle" type="text" name="title" minlength="2" maxlength="30" required>
             </div>
 
             <div>
-                <label for="postDescription"></label>
+                <label for="postDescription">Description</label>
                 <input type="text" name="description" minlength="0" maxlength="100">
             </div>
 
             <div>
-                <label for="postBody"></label>
+                <label for="postImg">Img</label>
+                <input type="text" name="img" maxlength="100" required>
+            </div>
+
+            <div>
+                <label for="postBody">Body</label>
                 <input type="text" name="body" minlength="2" maxlength="2000" required>
             </div>
+
+            <button>Submit</button>
 
         </form>
     </div>
