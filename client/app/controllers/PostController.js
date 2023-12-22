@@ -16,7 +16,14 @@ export class PostController{
         AppState.on('posts', _drawPost)
         this.getPosts()
     }
-
+    async openPost(postId){
+        try {
+            console.log('im open here')
+            postService.openPost(postId)
+        } catch (error) {
+            console.error(error)
+        }
+    }
     async createPost(){
         try{
             //@ts-ignore */
