@@ -1,3 +1,4 @@
+import { Post } from './models/Post.js'
 import { EventEmitter } from './utils/EventEmitter.js'
 import { isValidProp } from './utils/IsValidProp.js'
 
@@ -6,8 +7,11 @@ class ObservableAppState extends EventEmitter {
   /** @type {import('./models/Account.js').Account | null} */
   // @ts-ignore
   account = null
-
+/**@type {Post[]} */
   posts = []
+
+  
+  activePost = null
   
 
   // Used to load initial data

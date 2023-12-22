@@ -18,6 +18,9 @@ class PostService {
   async openPost(postId){
     const foundPost = AppState.posts.find(post => post.id == postId)
     console.log('found a post?', foundPost);
+    // @ts-ignore
+    AppState.activePost = foundPost
+    console.log('app state active',AppState.activePost)
     // AppState.activeBird = foundBird
   }
 

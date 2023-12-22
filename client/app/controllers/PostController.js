@@ -19,7 +19,7 @@ export class PostController{
     async openPost(postId){
         try {
             console.log('im open here')
-            postService.openPost(postId)
+            await postService.openPost(postId)
         } catch (error) {
             console.error(error)
         }
