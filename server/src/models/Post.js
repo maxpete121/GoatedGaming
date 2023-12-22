@@ -2,6 +2,7 @@ import { Schema } from "mongoose";
 
 
 export const PostSchema = new Schema({
+    postId: {type: Schema.Types.ObjectId, ref:'post'},
     postedBy: {type: Schema.Types.ObjectId, ref:'account'},
     title: {type: String, maxLength: 40, required: true},
     body: {type:String, required: true, maxLength:200},
