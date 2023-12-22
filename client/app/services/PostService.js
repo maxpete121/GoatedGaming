@@ -15,6 +15,11 @@ class PostService {
   console.log(res)
   AppState.posts.push(new Post(res.data))
   }
+  async openPost(postId){
+    const foundPost = AppState.posts.find(post => post.id == postId)
+    console.log('found a post?', foundPost);
+    // AppState.activeBird = foundBird
+  }
 
 }
 

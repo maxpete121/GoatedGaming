@@ -1,5 +1,6 @@
 export class Post {
   constructor(data) {
+    this.postId = data.postId
     this.postedBy = data.postedBy || 'Scrum Daddy Bless Me'
     this.title = data.title || 'Scrum Daddy Bless Me'
     this.imgUrl = data.imgUrl || 'https://i.redd.it/k3rjuky1xsy21.jpg'
@@ -17,8 +18,8 @@ export class Post {
   get PostTemplate() {
     return `
     <section class="d-flex justify-content-center">
-      <div class="card border-light bg-transparent text-center m-2" style="width: 30rem;">
-        <img onclick= src="${this.imgUrl}" class="card-img-top" alt="its a picture!">
+      <div onclick="app.PostController.openPost(${this.postId})" class="card border-light bg-transparent text-center m-2" style="width: 30rem;">
+        <img src="${this.imgUrl}" class="card-img-top" alt="its a picture!">
         <div class="card-body bg-">
           <h5 class="card-title">${this.title}</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary">${this.description}</h6>
