@@ -1,35 +1,37 @@
-<section class="row">
+<section class="row bg-dark text-light px-3">
 
-    <div class="col-3"></div>
+    <div class="col-2">
+        <h1 class="p-5">Filters</h1>
+    </div>
 
-    <div id="posts" class="col-6">
+    <div id="posts" class="col-8 d-flex align-items-center flex-column border-start border-end border-5 border-light">
         <!-- Posts Go Here -->
     </div>
 
-    <div class="col-3">
-        <form onsubmit="app.PostController.createPost()">
+    <div class="col-2">
+        <form onsubmit="app.PostController.createPost()" class="p-1 bg-dark text-light d-flex flex-column align-items-center border border-light rounded">
 
             <div>
-                <label for="postTitle">Title</label>
-                <input id="postTitle" type="text" name="title" minlength="2" maxlength="30" required>
+                <label for="postTitle" class="text-center">Title</label>
+                <input id="postTitle" type="text" name="title" minlength="2" maxlength="30" required class="form-control">
+            </div>
+
+            <div class="p-1">
+                <label for="postDescription" class="text-center">Description</label>
+                <input type="text" name="description" minlength="0" maxlength="100" class="form-control">
             </div>
 
             <div>
-                <label for="postDescription">Description</label>
-                <input type="text" name="description" minlength="0" maxlength="100">
+                <label for="postImg" class="text-center">Img</label>
+                <input type="text" name="img" maxlength="100" required class="form-control">
             </div>
 
-            <div>
-                <label for="postImg">Img</label>
-                <input type="text" name="img" maxlength="100" required>
+            <div class="p-1">
+                <label for="postBody" class="text-center">Body</label>
+                <textarea type="text" name="body" minlength="2" maxlength="2000" required class="form-control"> </textarea>
             </div>
 
-            <div>
-                <label for="postBody">Body</label>
-                <input type="text" name="bodyUrl" minlength="2" maxlength="2000" required>
-            </div>
-
-            <button>Submit</button>
+            <button class="btn btn-outline-light w-50 text-center">Submit</button>
 
         </form>
     </div>
