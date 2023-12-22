@@ -6,6 +6,7 @@ class ObservableAppState extends EventEmitter {
   /** @type {import('./models/Account.js').Account | null} */
   // @ts-ignore
   account = null
+  
 
   // Used to load initial data
   init() {
