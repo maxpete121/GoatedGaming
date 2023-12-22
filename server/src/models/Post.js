@@ -3,10 +3,11 @@ import { Schema } from "mongoose";
 
 export const PostSchema = new Schema({
     postedBy: {type: Schema.Types.ObjectId, ref:'account'},
-    title: {type: String, maxLength: 60, required: true},
-    bodyUrl: {type: String, maxLength: 300, required: true},
-    description: {type: String, maxLength: 100},
-    like: {type: Number},
+    title: {type: String, maxLength: 40, required: true},
+    body: {type:String, required: true, maxLength:200},
+    imgUrl: {type: String, maxLength: 300, required: true},
+    description: {type: String, maxLength: 30},
+    like: {type: Array},
     comment: {type: Schema.Types.ObjectId}
 },{toJSON: {virtuals: true}, timestamps: true})
 
