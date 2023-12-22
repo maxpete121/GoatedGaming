@@ -14,12 +14,13 @@ if (process.env.NODE_ENV == 'dev') {
   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 1;
 }
 
+
 const httpServer = createServer(app)
 Startup.ConfigureGlobalMiddleware(app)
 Startup.ConfigureRoutes(app)
 
 // Establish Socket
-socketProvider.initialize(httpServer)
+// socketProvider.initialize(httpServer)
 
 // Connect to Atlas MongoDB
 DbConnection.connect()
