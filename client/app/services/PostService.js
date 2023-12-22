@@ -15,7 +15,7 @@ class PostService {
   async createPost(formData){
   const res = await api.post('api/posts', formData)
   console.log(res)
-  AppState.posts.push(new Post(res.body))
+  AppState.posts.push(new Post(res.data))
   }
 
 }
