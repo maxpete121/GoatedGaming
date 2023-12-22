@@ -9,9 +9,10 @@ export class PostController{
     }
 
     async createPost(){
+        //@ts-ignore */
+        event.preventDefault()
         try{
-            //@ts-ignore */
-            event.preventDefault()
+            console.log('a')
             //@ts-ignore */
             await postService.createPost(getFormData(event.target))
         }
@@ -20,4 +21,3 @@ export class PostController{
         }
     }
 }
-for
