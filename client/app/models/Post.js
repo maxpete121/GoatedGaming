@@ -8,7 +8,7 @@ export class Post {
 
   }
 
-  // postedBy: {type: Schema.Types.ObjectId, ref:'account'},
+  //    postedBy: {type: Schema.Types.ObjectId, ref:'account'},
   //   title: {type: String, maxLength: 60, required: true},
   //   bodyUrl: {type: String, maxLength: 300, required: true},
   //   description: {type: String, maxLength: 100},
