@@ -8,7 +8,7 @@ class PostsService {
     }
 
     async getPost(){
-        const allPost = await dbContext.Posts.find()
+        const allPost = await dbContext.Posts.find().populate('account')
         return allPost
     }
 
