@@ -3,7 +3,7 @@ import { Schema } from "mongoose";
 
 export const PostSchema = new Schema({
     postId: {type: Schema.Types.ObjectId, ref:'post'},
-    postedBy: {type: Schema.Types.ObjectId, ref:'account'},
+    postedBy: {type: Schema.Types.ObjectId, ref:'Account'},
     title: {type: String, maxLength: 40, required: true},
     body: {type:String, required: true, maxLength:200},
     imgUrl: {type: String, maxLength: 300, required: true},
@@ -12,7 +12,7 @@ export const PostSchema = new Schema({
     comment: {type: Schema.Types.ObjectId}
 },{toJSON: {virtuals: true}, timestamps: true})
 
-PostSchema.virtual('account', {
+PostSchema.virtual('Account', {
     localField: 'postedBy',
     foreignField: '_id',
     ref: 'Account',
