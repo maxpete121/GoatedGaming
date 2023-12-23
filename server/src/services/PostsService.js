@@ -2,7 +2,8 @@ import { dbContext } from "../db/DbContext"
 
 
 class PostsService {
-    async createPost(postData) {
+    async createPost(postData,postedby) {
+        postData.postedBy = postedby
         const newPost = await dbContext.Posts.create(postData)
         return newPost
     }
