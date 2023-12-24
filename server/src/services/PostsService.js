@@ -2,13 +2,14 @@ import { dbContext } from "../db/DbContext"
 
 
 class PostsService {
-    async createPost(postData) {
+    async createPost(postData, postedByP) {
+        postData.postedBy = postedByP
         const newPost = await dbContext.Posts.create(postData)
         return newPost
     }
 
     async getPost(){
-        const allPost = await dbContext.Posts.find().populate('account')
+        const allPost = await dbContext.Posts.find().populate('Account')
         return allPost
     }
 

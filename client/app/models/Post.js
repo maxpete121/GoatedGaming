@@ -1,7 +1,7 @@
 export class Post {
   constructor(data) {
     this.id = data._id
-    this.postedBy = data.postedBy || 'Scrum Daddy Bless Me'
+    this.postedBy = data.postedBy 
     this.title = data.title || 'Scrum Daddy Bless Me'
     this.imgUrl = data.imgUrl || 'https://i.redd.it/k3rjuky1xsy21.jpg'
     this.body = data.body || 'Scrum Daddy Bless Me'
